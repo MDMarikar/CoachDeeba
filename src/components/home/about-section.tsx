@@ -9,7 +9,7 @@ export function AboutSection() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex justify-center">
             <Image
-              src="/profile.jpeg"
+              src={`${process.env.basePath || ''}/profile.jpeg`}
               alt={aboutMeData.name}
               data-ai-hint="profile picture"
               width={320}
