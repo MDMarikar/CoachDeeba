@@ -1,7 +1,7 @@
 import type { AboutMe, Testimonial } from './types';
 
 export const aboutMeData: AboutMe = {
-  name: 'Alex Sterling',
+  name: 'Coach Deeba',
   bio: [
     "I'm a certified professional life coach helping women navigate personal and professional challenges.",
     "Through personalized 1-on-1 sessions, we'll uncover a path to self-discovery—working through what's holding you back and building a life from the heart, with purpose and deep connection to Allah, insha Allah.",
