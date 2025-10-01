@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   basePath: repoName,
   assetPrefix: repoName,
   env: {
-    basePath: repoName,
+    NEXT_PUBLIC_BASE_PATH: isProd ? repoName : '',
   },
   typescript: {
     ignoreBuildErrors: true,
