@@ -7,7 +7,7 @@ export function ContactSection() {
         <div className="mx-auto max-w-2xl">
           <Card>
             <CardHeader className="text-center">
-              <CardTitle className="text-3xl font-headline text-primary">Intake Form</CardTitle>
+              <CardTitle className="text-3xl font-headline text-primary">Register For A Free Consultation</CardTitle>
               <CardDescription>
                 Ready to start your transformation? Please fill out the form below and I'll get back to you soon.
               </CardDescription>
