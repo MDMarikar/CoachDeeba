@@ -1,1 +1,1 @@
-export const BASE_PATH = '/CoachDeeba';
+export const BASE_PATH = '';
