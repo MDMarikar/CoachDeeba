@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <section className="relative w-full py-20 md:py-32 lg:py-40">
       <Image
-        src={`${process.env.basePath || ''}/coach_background.jpeg`}
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/coach_background.jpeg`}
         alt="Person watching a sunset"
         width={1920}
         height={1080}
