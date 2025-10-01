@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from '@/components/ui/button';
 import type { BlogPost } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { BASE_PATH } from '@/lib/config';
 
 interface BlogPostCardProps {
   post: Omit<BlogPost, 'content'>;
@@ -11,13 +12,18 @@ interface BlogPostCardProps {
 
 export function BlogPostCard({ post }: BlogPostCardProps) {
   const postImage = PlaceHolderImages.find(p => p.id === post.imageId);
-
+  
+  // Add BASE_PATH only if it's a local image (starts with /)
+  const imageSrc = postImage?.imageUrl.startsWith('/') 
+    ? `${BASE_PATH}${postImage.imageUrl}`
+    : postImage?.imageUrl;
+  
   return (
     <Card className="flex flex-col overflow-hidden h-full">
-      {postImage && (
+      {postImage && imageSrc && (
         <div className="relative aspect-video">
           <Image
-            src={postImage.imageUrl}
+            src={imageSrc}
             alt={post.title}
             data-ai-hint={postImage.imageHint}
             fill
