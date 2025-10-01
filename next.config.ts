@@ -1,15 +1,11 @@
 import type {NextConfig} from 'next';
 
-const repoName = '';
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
   basePath: '',
   assetPrefix: '',
-  env: {
-    NEXT_PUBLIC_BASE_PATH: repoName,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
