@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { aboutMeData } from '@/lib/data';
 import { CheckCircle2 } from 'lucide-react';
+import { BASE_PATH } from '@/lib/config';
 
 export function AboutSection() {
   return (
@@ -9,7 +10,7 @@ export function AboutSection() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex justify-center">
             <Image
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/profile.jpeg`}
+              src={`${BASE_PATH}/profile.jpeg`}
               alt={aboutMeData.name}
               data-ai-hint="profile picture"
               width={320}
