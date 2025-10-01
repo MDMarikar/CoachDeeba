@@ -13,9 +13,14 @@ export async function generateStaticParams() {
   return paths.map(p => ({ slug: p.params.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}): Promise<Metadata> {
   try {
-    const post = await getPostData(params.slug);
+    const { slug } = await params;
+    const post = await getPostData(slug);
     return {
       title: `${post.title} | CoachDeeba`,
       description: post.excerpt,
@@ -27,17 +32,22 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const { slug } = await params;
+  
   let post;
   try {
-    post = await getPostData(params.slug);
+    post = await getPostData(slug);
   } catch (error) {
     notFound();
   }
   
   const postImage = PlaceHolderImages.find(p => p.id === post.imageId);
-
+  
   return (
     <article className="container max-w-3xl mx-auto py-12 px-4 md:py-16 lg:py-20 animate-fade-in">
       <header className="mb-8 text-center">
@@ -53,7 +63,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           })}
         </p>
       </header>
-
       {postImage && (
         <div className="relative aspect-video mb-8 rounded-lg overflow-hidden shadow-lg">
           <Image
