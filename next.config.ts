@@ -1,12 +1,12 @@
 import type {NextConfig} from 'next';
 
-const repoName = '/CoachDeeba';
+const repoName = '';
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
-  basePath: repoName,
-  assetPrefix: repoName,
+  basePath: '',
+  assetPrefix: '',
   env: {
     NEXT_PUBLIC_BASE_PATH: repoName,
   },
