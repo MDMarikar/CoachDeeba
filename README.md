@@ -1,3 +1,3 @@
 # Coach Deeba Page
 
-From NextJS starter in Firebase Studio.
+From NextJS starter in Firebase Studios
