@@ -1,12 +1,13 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
+import { BASE_PATH } from '@/lib/config';
 
 export function HeroSection() {
   return (
     <section className="relative w-full py-20 md:py-32 lg:py-40">
       <Image
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/coach_background.jpeg`}
+        src={`${BASE_PATH}/coach_background.jpeg`}
         alt="Person watching a sunset"
         width={1920}
         height={1080}
