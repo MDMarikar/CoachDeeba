@@ -1,0 +1,16 @@
+{
+  "placeholderImages": [
+    {
+      "id": "blog-post-1",
+      "description": "Abstract image representing a void.",
+      "imageUrl": "/void.jpeg",
+      "imageHint": "abstract void"
+    },
+    {
+      "id": "blog-post-2",
+      "description": "A balanced stack of stones.",
+      "imageUrl": "https://images.unsplash.com/photo-1610306673899-d10f9f5e7ece?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxiYWxhbmNlZCUyMHN0b25lc3xlbnwwfHx8fDE3NTkzMjMzNTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "balanced stones"
+    }
+  ]
+}
