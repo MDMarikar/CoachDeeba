@@ -8,12 +8,12 @@ interface PageParams {
   slug: string;
 }
 
-export async function generateStaticParams(): Promise<PageParams[]> {
+export async function generateStaticParams() {
   const paths = await getAllPostSlugs();
   return paths.map(p => ({ slug: p.params.slug }));
 }
 
-export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   try {
     const post = await getPostData(params.slug);
     return {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
 }
 
 
-export default async function BlogPostPage({ params }: { params: PageParams }) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   let post;
   try {
     post = await getPostData(params.slug);
