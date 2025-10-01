@@ -77,17 +77,17 @@ export function Header() {
               <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <nav className="flex flex-col gap-6 text-lg font-medium mt-8">
                 {navLinks.map((link) => (
-                  <Link
+                  <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setTimeout(() => setIsOpen(false), 100)}
                     className={cn(
                       'transition-colors hover:text-foreground/80 p-4',
                       pathname === link.href ? 'text-foreground bg-muted' : 'text-foreground/60'
                     )}
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 ))}
               </nav>
             </SheetContent>
