@@ -1,5 +1,6 @@
 import { getAllPostSlugs, getPostData } from '@/lib/blog';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { BASE_PATH } from '@/lib/config';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -48,6 +49,11 @@ export default async function BlogPostPage({
   
   const postImage = PlaceHolderImages.find(p => p.id === post.imageId);
   
+  // Add BASE_PATH only if it's a local image (starts with /)
+  const imageSrc = postImage?.imageUrl.startsWith('/') 
+    ? `${BASE_PATH}${postImage.imageUrl}`
+    : postImage?.imageUrl;
+  
   return (
     <article className="container max-w-3xl mx-auto py-12 px-4 md:py-16 lg:py-20 animate-fade-in">
       <header className="mb-8 text-center">
@@ -63,10 +69,10 @@ export default async function BlogPostPage({
           })}
         </p>
       </header>
-      {postImage && (
+      {postImage && imageSrc && (
         <div className="relative aspect-video mb-8 rounded-lg overflow-hidden shadow-lg">
           <Image
-            src={postImage.imageUrl}
+            src={imageSrc}
             alt={post.title}
             data-ai-hint={postImage.imageHint}
             fill
